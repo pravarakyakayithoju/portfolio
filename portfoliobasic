@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pravarakya | Portfolio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#020205", /* Darker, specific to screenshot */
+            card: "#0a0a0f",
+            primary: "#8b5cf6", /* Violet-500 */
+            primaryHover: "#7c3aed",
+            secondary: "#a78bfa", /* Violet-400 */
+            accent: "#c4b5fd",
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          boxShadow: {
+            'glow': '0 0 20px rgba(139, 92, 246, 0.15)',
+            'glow-hover': '0 0 30px rgba(139, 92, 246, 0.3)',
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #020205;
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+
+    /* Typing Cursor */
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+      color: #8b5cf6;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Card Decoration */
+    .card-icon-bg {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    /* Gradient Text */
+    .text-gradient {
+      background: linear-gradient(to right, #8b5cf6, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-primary/30 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-bg/80 border-b border-white/5 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2 group">
+        <div
+          class="w-8 h-8 rounded-lg bg-card border border-white/10 flex items-center justify-center text-primary font-mono font-bold group-hover:border-primary/50 transition-colors">
+          &gt;_
+        </div>
+        <span class="text-xl font-bold tracking-tight">Pravarakya<span class="text-primary">.dev</span></span>
+      </a>
+
+      <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+        <a href="#about" class="hover:text-primary transition-colors">About</a>
+        <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+        <a href="#education" class="hover:text-primary transition-colors">Education</a>
+        <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+      </div>
+
+      <a href="resume.pdf"
+        class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary text-white text-sm font-medium hover:bg-primaryHover transition-all shadow-lg shadow-primary/25">
+        Resume
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-[90vh] flex items-center pt-20 px-6 relative overflow-hidden">
+    <!-- Background Blobs -->
+    <div
+      class="absolute top-20 right-0 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left Text -->
+      <div class="space-y-8">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Available for Hire
+        </div>
+
+        <div class="space-y-4">
+          <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+            Hello, I'm <br>
+            <span class="text-gradient">Pravarakya</span>
+          </h1>
+          <p class="text-2xl md:text-3xl font-light text-gray-300">
+            I am a <span id="typing-text" class="font-semibold text-white typing-cursor"></span>
+          </p>
+        </div>
+
+        <p class="text-gray-400 max-w-lg leading-relaxed text-lg">
+          Second-year B.Tech Computer Science (AI & ML) undergraduate with a strong foundation in Data Structures, C
+          programming, Python, and Java. Based in Hyderabad, India.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects"
+            class="px-8 py-3.5 rounded-full bg-primary text-white font-medium shadow-glow hover:bg-primaryHover transition-all flex items-center gap-2">
+            View Work <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <a href="resume.pdf"
+            class="px-8 py-3.5 rounded-full border border-white/10 hover:bg-white/5 transition-all font-medium flex items-center gap-2">
+            Download Resume <i class="fas fa-download text-sm text-gray-400"></i>
+          </a>
+        </div>
+
+        <!-- Socials -->
+        <div class="flex gap-6 text-gray-400 pt-4">
+          <a href="https://github.com/pravarakyakayithoju" class="hover:text-primary transition-colors text-xl"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/checkpoint/lg/login-challenge-submit?lastCv=AgHkx9XDLL6DGAAAAZvXenlecnxNNgVRc51--mY3ert0DvPayjQJ0MjAuko&_d=d&session_redirect=%2Fauthwall&vcd=AgFZh5J9Vm5YugAAAZvXepOhVjeYgm255fsj3bAZ-zueO5wbPUg6LHAtZYGsuCp_i4lPKIprTkGjaBqa20eeB6mNZjzGng&pageInstance=urn%3Ali%3Apage%3Ad_checkpoint_ch_captchaV2Challenge%3BJ8LhuL7SRQanTtuUcvsoVA%3D%3D&controlId=d_checkpoint_ch_captchaV2Challenge-Submit&ut=1lBJtpwGBaRY41" class="hover:text-primary transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:pravarakyakayithoju2007@gmail.com" class="hover:text-primary transition-colors text-xl"><i
+              class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="relative hidden md:flex justify-end">
+        <div
+          class="w-[450px] h-[500px] bg-card rounded-[2rem] border border-white/5 relative p-8 flex flex-col items-center justify-center text-center shadow-2xl">
+          <!-- Glow effect behind card -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[2rem] blur opacity-20 -z-10">
+          </div>
+
+          <div class="w-24 h-24 rounded-2xl bg-white/5 flex items-center justify-center mb-8 border border-white/5">
+            <i class="fas fa-code text-5xl text-primary"></i>
+          </div>
+
+          <h3 class="text-3xl font-bold mb-4">Let's Build Future</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Turning complex problems into elegant solutions through code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4">About Me<span class="text-primary">.</span></h2>
+      <p class="text-gray-400 mb-12">A glimpse into my journey and passion for technology.</p>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-6 text-gray-300 leading-relaxed">
+          <p>
+            I am currently a 2nd year B.Tech CSE student specializing in AI & ML at CMR College of Engineering &
+            Technology. Simultaneously, I am pursuing a BS in Data Science & AI from BITS Pilani.
+          </p>
+          <p>
+            I am experienced in building problem-oriented software projects and basic web applications. I am seeking
+            internship opportunities to strengthen my core software development and problem-solving skills.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-card border border-white/5">
+              <h4 class="text-3xl font-bold text-primary mb-1">2+</h4>
+              <p class="text-sm text-gray-500">Years of Coding</p>
+            </div>
+            <div class="p-4 rounded-xl bg-card border border-white/5">
+              <h4 class="text-3xl font-bold text-primary mb-1">10+</h4>
+              <p class="text-sm text-gray-500">Projects Completed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Cards (styled like screenshots) -->
+        <div class="space-y-4" id="education">
+          <!-- CMR -->
+          <div class="p-6 rounded-2xl bg-card border border-primary/20 hover:border-primary/50 transition-all group">
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+                <span class="font-mono text-primary font-bold">&gt;_</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-primary mb-1">CMR College of Engineering & Technology</h3>
+                <p class="text-sm font-semibold text-white">Bachelor of Technology – CSE (AI & ML)</p>
+                <p class="text-xs text-gray-500 mt-2 mb-3 bg-white/5 inline-block px-2 py-1 rounded">2024 - Present</p>
+                <p class="text-sm text-gray-400">CGPA: 9.08 / 10</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BITS -->
+          <div class="p-6 rounded-2xl bg-card border border-white/5 hover:border-primary/50 transition-all group">
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+                <span class="font-mono text-gray-400 group-hover:text-primary transition-colors font-bold">&gt;_</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">BITS Pilani
+                </h3>
+                <p class="text-sm font-semibold text-white">Bachelor of Science – Data Science & AI</p>
+                <p class="text-xs text-gray-500 mt-2 mb-3 bg-white/5 inline-block px-2 py-1 rounded">Ongoing</p>
+                <p class="text-sm text-gray-400">Status: Ongoing</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="p-6 rounded-2xl bg-card border border-white/5 hover:border-primary/50 transition-all group">
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+                <span class="font-mono text-gray-400 group-hover:text-primary transition-colors font-bold">&gt;_</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">Intermediate
+                  (TSBIE)</h3>
+                <div class="flex gap-2">
+                  <p class="text-xs text-gray-500 bg-white/5 inline-block px-2 py-1 rounded">Completed</p>
+                </div>
+                <p class="text-sm text-gray-400 mt-2">Score: 97.2%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Arsenal -->
+  <section id="skills" class="py-24 px-6 bg-[#050508]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-3">Technical Arsenal<span class="text-primary">.</span></h2>
+        <p class="text-gray-400">Tools and technologies I work with.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-transparent mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="p-8 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all h-full">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+            <span class="font-mono font-bold">&gt;_</span>
+          </div>
+          <h3 class="text-xl font-bold mb-6">Languages & Web</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">C
+              Programming</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Python</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Java</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">HTML</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">CSS</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">JS</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-8 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all h-full">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary text-xl">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-6">Core Concepts</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Data
+              Structures</span>
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Algorithms</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Problem
+              Solving</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">OOPS</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Complexity
+              Analysis</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-8 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all h-full">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary text-xl">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-6">Certifications</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Cambridge
+              English B1</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Oracle Race to
+              Cert</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Google
+              GenAI</span>
+            <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300">Cisco
+              Certifications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12">Featured Projects<span class="text-primary">.</span></h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <div
+          class="group rounded-3xl bg-card border border-white/5 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col">
+          <div
+            class="h-56 bg-gradient-to-br from-[#1a1a24] to-[#111] flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
+            <i
+              class="fas fa-id-card text-5xl text-gray-700 group-hover:text-primary transition-colors duration-300 transform group-hover:scale-110"></i>
+          </div>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold group-hover:text-primary transition-colors">Driver Monitoring System</h3>
+              <a href="#" class="text-gray-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              A real-time driver safety monitoring system using OpenCV and Python. It detects drowsiness and distraction
+              to alert drivers via a dashboard.
+            </p>
+
+            <div class="mt-auto bg-white/5 rounded-xl p-4 mb-6 border-l-2 border-primary">
+              <p class="text-sm text-gray-300 italic">
+                <span class="font-bold text-primary not-italic">Challenge Solved:</span>
+                "Faced significant API latency (~2s delay) during deployment. Optimized the frame processing pipeline by
+                implementing local caching and threading, reducing latency by 70% for real-time alerts."
+              </p>
+            </div>
+
+            <div class="flex gap-3 text-sm font-medium text-gray-500">
+              <span>Python</span> • <span>OpenCV</span> • <span>ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="group rounded-3xl bg-card border border-white/5 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-glow flex flex-col">
+          <div
+            class="h-56 bg-gradient-to-br from-[#1a1a24] to-[#111] flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
+            <i
+              class="fas fa-users-cog text-5xl text-gray-700 group-hover:text-primary transition-colors duration-300 transform group-hover:scale-110"></i>
+          </div>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold group-hover:text-primary transition-colors">Student Management System</h3>
+              <a href="#" class="text-gray-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              Comprehensive CRUD-based system for managing student records, leveraging efficient Data Structures for
+              optimal performance.
+            </p>
+
+            <div class="mt-auto bg-white/5 rounded-xl p-4 mb-6 border-l-2 border-primary">
+              <p class="text-sm text-gray-300 italic">
+                <span class="font-bold text-primary not-italic">Challenge Solved:</span>
+                "Managing large datasets caused retrieval slowness. Implemented a custom Hashing algorithm instead of
+                linear search, reducing record lookup time by 90%."
+              </p>
+            </div>
+
+            <div class="flex gap-3 text-sm font-medium text-gray-500">
+              <span>C / Java</span> • <span>Data Structures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-6 relative">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Contact Form Card -->
+      <div
+        class="rounded-3xl bg-card border border-white/5 p-1 mb-12 shadow-glow hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] transition-shadow duration-500">
+        <div class="bg-[#050508] rounded-[1.4rem] p-8 md:p-12">
+          <h2 class="text-3xl font-bold mb-8 text-center">Get in <span class="text-primary">Touch</span></h2>
+
+          <form action="mailto:pravarakyakayithoju2007@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-medium text-gray-400">Name</label>
+                <input type="text" name="name"
+                  class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-gray-600"
+                  placeholder="John Doe">
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-medium text-gray-400">Email</label>
+                <input type="email" name="email"
+                  class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-gray-600"
+                  placeholder="john@example.com">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-gray-400">Message</label>
+              <textarea name="message" rows="4"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-gray-600"
+                placeholder="Your message here..."></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full bg-gradient-to-r from-primary to-accent hover:to-primary text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Cards -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Email -->
+        <a href="mailto:pravarakyakayithoju2007@gmail.com"
+          class="p-8 rounded-3xl bg-card border border-white/5 flex flex-col items-center text-center group hover:bg-[#0f0f16] transition-all">
+          <div
+            class="w-14 h-14 rounded-full bg-[#1a1a24] flex items-center justify-center text-primary text-xl mb-4 group-hover:scale-110 transition-transform shadow-glow">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Email</h3>
+          <p class="text-sm text-gray-400 break-all">pravarakyakayithoju2007<br>@gmail.com</p>
+        </a>
+
+        <!-- Location -->
+        <div
+          class="p-8 rounded-3xl bg-card border border-white/5 flex flex-col items-center text-center group hover:bg-[#0f0f16] transition-all">
+          <div
+            class="w-14 h-14 rounded-full bg-[#1a1a24] flex items-center justify-center text-primary text-xl mb-4 group-hover:scale-110 transition-transform shadow-glow">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Location</h3>
+          <p class="text-sm text-gray-400">Hyderabad, Telangana</p>
+        </div>
+
+        <!-- LinkedIn -->
+        <a href="#"
+          class="p-8 rounded-3xl bg-card border border-white/5 flex flex-col items-center text-center group hover:bg-[#0f0f16] transition-all">
+          <div
+            class="w-14 h-14 rounded-full bg-[#1a1a24] flex items-center justify-center text-primary text-xl mb-4 group-hover:scale-110 transition-transform shadow-glow">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">LinkedIn</h3>
+          <p class="text-sm text-primary hover:text-white transition-colors">Connect with me</p>
+        </a>
+      </div>
+
+      <div class="mt-16 text-center text-gray-600 text-sm">
+        <p>© 2026 Kayithoju Pravarakya. All rights reserved.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Typing Effect with Loop
+    const textElement = document.getElementById('typing-text');
+    const phrases = ["Comp. Sci. Undergraduate", "Problem Solver", "Web Developer", "Data Science Student"];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+      } else {
+        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500; // Pause before new word
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    document.addEventListener('DOMContentLoaded', type);
+  </script>
+</body>
+
+</html>
